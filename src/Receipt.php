@@ -15,6 +15,18 @@ class Receipt {
 	}
 
 
+	public function tax($amount, $tax)
+	{
+		
+
+		return ($amount * $tax);
+
+
+
+
+	}
+
+
 
 
 }
