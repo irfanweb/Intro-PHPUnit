@@ -16,7 +16,7 @@ class ReceiptTest extends TestCase
 	public function setUP()
 	{
 		
-
+ 
 		$this->receipt = new Receipt();
 
 
