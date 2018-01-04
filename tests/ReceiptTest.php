@@ -49,5 +49,29 @@ class ReceiptTest extends TestCase
 	}
 
 
+	public function testTax()
+	{
+		
 
+		$inputAmount = 10.00;
+
+		$taxAmount =  0.10;
+
+		$output = $this->receipt->tax($inputAmount, $taxAmount);
+
+		$this->assertEquals(
+			1.00,
+			$output,
+			'The Tax Calculation should be qual to 1.00'
+		);
+
+
+
+
+
+
+	}
+
+
+ 
 }
