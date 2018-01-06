@@ -51,6 +51,27 @@ class ReceiptTest extends TestCase
 	}
 
 
+
+	public function testTotalWithCoupon()
+	{
+		
+		$input = [ 0, 2, 5, 8];
+
+		$coupon = 0.20;
+
+		$output = $this->receipt->total($input, $coupon);
+
+		$this->assertEquals(
+			12,
+		 	$output,
+		 	 'When summing the total should be equal to 12'
+		);
+
+	}
+
+
+
+
 	public function testTax()
 	{
 		
