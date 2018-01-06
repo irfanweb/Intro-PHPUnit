@@ -38,7 +38,9 @@ class ReceiptTest extends TestCase
 		
 		$input = [ 0, 2, 5, 8];
 
-		$output = $this->receipt->total($input);
+		$coupon = null;
+
+		$output = $this->receipt->total($input, $coupon);
 
 		$this->assertEquals(
 			15,
@@ -64,9 +66,6 @@ class ReceiptTest extends TestCase
 			$output,
 			'The Tax Calculation should be qual to 1.00'
 		);
-
-
-
 
 
 
