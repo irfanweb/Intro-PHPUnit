@@ -12,7 +12,6 @@ class FormatterTest extends TestCase
 {
 
 
-
 	public function setUP()
 	{
 		
