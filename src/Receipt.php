@@ -20,7 +20,6 @@ class Receipt
 		}
 
 
-
 		$sum = array_sum($items);
 
 		if(!is_null($coupon))
@@ -55,6 +54,16 @@ class Receipt
 		$subtotal = $this->total($items, $coupon);	
 
 		return $subtotal + $this->tax($subtotal, $tax);	
+
+
+	}
+
+
+	public function currenyAmount($input)
+	{
+		
+
+		return round($input, 2);
 
 
 	}
