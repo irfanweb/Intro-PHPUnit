@@ -22,6 +22,7 @@ class Receipt
 
 		$sum = array_sum($items);
 
+		
 		if(!is_null($coupon))
 		{
 			
@@ -37,23 +38,23 @@ class Receipt
 	}
 
 
-	public function tax($amount, $tax)
+	public function tax($amount)
 	{
 		
 
-		return ($amount * $tax);
+		return ($amount * $this->tax);
 
 
 	}
 
 
 
-	public function postTaxTotal($items, $tax, $coupon)
+	public function postTaxTotal($items, $coupon)
 	{
 		
 		$subtotal = $this->subtotal($items, $coupon);	
 
-		return $subtotal + $this->tax($subtotal, $tax);	
+		return $subtotal + $this->tax($subtotal);	
 
 
 	}

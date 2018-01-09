@@ -110,9 +110,9 @@ class ReceiptTest extends TestCase
 
 		$inputAmount = 10.00;
 
-		$taxAmount =  0.10;
+		$this->receipt->tax =  0.10;
 
-		$output = $this->receipt->tax($inputAmount, $taxAmount);
+		$output = $this->receipt->tax($inputAmount);
 
 		$this->assertEquals(
 			1.00,
@@ -148,11 +148,11 @@ class ReceiptTest extends TestCase
 
 		$receipt->expects($this->once())
 				->method('tax')
-				->with(10.00, $tax)
+				->with(10.00)
 				->will($this->returnValue(1.00));
 
 
-		$results = $receipt->postTaxTotal([1, 2, 5, 8], 0.20, null);
+		$results = $receipt->postTaxTotal([1, 2, 5, 8], null);
 		
 
 		$this->assertEquals(11.00, $results);		
