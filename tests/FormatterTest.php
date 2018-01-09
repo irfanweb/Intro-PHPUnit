@@ -45,7 +45,7 @@ class FormatterTest extends TestCase
 
 		$this->assertSame(
 			$expected,
-			$this->formatter->currenyAmount($input),
+			$this->formatter->currencyAmount($input),
 			 $msg
 		);
 

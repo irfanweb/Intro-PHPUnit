@@ -16,8 +16,19 @@ class ReceiptTest extends TestCase
 	public function setUP()
 	{
 		
- 
-		$this->receipt = new Receipt();
+ 		$this->formatter = $this->getMockBuilder('TDD\Formatter')
+ 								->setMethods(['currencyAmount'])
+ 								->getMock();
+
+
+ 		$this->formatter->expects($this->any())
+ 						->method('currencyAmount')
+ 						->with($this->anything())
+ 						->will($this->returnArgument(0));	
+
+
+		$this->receipt = new Receipt($this->formatter);
+
 
 
 	}
@@ -137,6 +148,7 @@ class ReceiptTest extends TestCase
 
 		$receipt = $this->getMockBuilder('TDD\Receipt')
 	 					 ->setMethods(['tax', 'subtotal'])
+	 					 ->setConstructorArgs([$this->formatter])
 						 ->getMock();
 
 

@@ -6,7 +6,7 @@ class Formatter
 {
 
 
-	public function currenyAmount($input)
+	public function currencyAmount($input)
 	{
 		
 

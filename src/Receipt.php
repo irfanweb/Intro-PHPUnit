@@ -9,11 +9,15 @@ use TDD\Formatter;
 class Receipt
  {
 
- 	public function __construct()
+
+ 	protected $formatter;
+
+
+ 	public function __construct($formatter)
  	{
  		
 
- 		$this->formatter = new Formatter();
+ 		$this->formatter = $formatter;
 
 
  	}
@@ -53,7 +57,7 @@ class Receipt
 	{
 		
 
-		return $this->formatter->currenyAmount(($amount * $this->tax));
+		return $this->formatter->currencyAmount(($amount * $this->tax));
 
 
 	}
