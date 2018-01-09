@@ -57,7 +57,7 @@ class ReceiptTest extends TestCase
 		
 		return [
 
-			[[1, 2, 5, 8], 16],
+		'ints totaling 16' => [ [1, 2, 5, 8], 16],
 
 			[[-1, 2, 5, 8], 14],
 
