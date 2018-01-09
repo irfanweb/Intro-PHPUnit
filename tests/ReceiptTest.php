@@ -34,14 +34,14 @@ class ReceiptTest extends TestCase
 
 
 	/**
-	* @dataProvider provideTotal
+	* @dataProvider provideSubtotal
 	*/
-	public function testTotal($items, $expected)
+	public function testSubTotal($items, $expected)
 	{
 		
 		$coupon = null;
 
-		$output = $this->receipt->total($items, $coupon);
+		$output = $this->receipt->subtotal($items, $coupon);
 
 		$this->assertEquals(
 			$expected,
@@ -52,7 +52,7 @@ class ReceiptTest extends TestCase
 	}
 
 
-	public function provideTotal()
+	public function provideSubtotal()
 	{
 		
 		return [
@@ -67,14 +67,14 @@ class ReceiptTest extends TestCase
 	}
 
 
-	public function testTotalWithCoupon()
+	public function testSubtotalWithCoupon()
 	{
 		
 		$input = [ 0, 2, 5, 8];
 
 		$coupon = 0.20;
 
-		$output = $this->receipt->total($input, $coupon);
+		$output = $this->receipt->subtotal($input, $coupon);
 
 		$this->assertEquals(
 			12,
@@ -86,7 +86,7 @@ class ReceiptTest extends TestCase
 
 
 
-	public function testTotalWithCouponGreaterThan100PercentException()
+	public function testSubtotalWithCouponGreaterThan100PercentException()
 	{
 		
 		$input = [ 0, 2, 5, 8];
@@ -95,7 +95,7 @@ class ReceiptTest extends TestCase
 
 		$this->expectException('BadMethodCallException');
 
-		$this->receipt->total($input, $coupon);
+		$this->receipt->subtotal($input, $coupon);
 
 
 	}  
@@ -136,12 +136,12 @@ class ReceiptTest extends TestCase
 		$coupon = null;
 
 		$receipt = $this->getMockBuilder('TDD\Receipt')
-	 					 ->setMethods(['tax', 'total'])
+	 					 ->setMethods(['tax', 'subtotal'])
 						 ->getMock();
 
 
 		$receipt->expects($this->once())
-				->method('total')
+				->method('subtotal')
 				->with($items, $coupon)
 				->will($this->returnValue(10.00));
 
@@ -175,7 +175,7 @@ class ReceiptTest extends TestCase
 		);
 
 	}
-	
+
 
 	public function provideCurrenyAmount()
 	{

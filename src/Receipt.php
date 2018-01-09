@@ -8,7 +8,7 @@ class Receipt
  {
 
 
-	public function total(array $items = [], $coupon)
+	public function subtotal(array $items = [], $coupon)
 	{
 
 
@@ -51,7 +51,7 @@ class Receipt
 	public function postTaxTotal($items, $tax, $coupon)
 	{
 		
-		$subtotal = $this->total($items, $coupon);	
+		$subtotal = $this->subtotal($items, $coupon);	
 
 		return $subtotal + $this->tax($subtotal, $tax);	
 
