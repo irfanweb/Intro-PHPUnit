@@ -86,6 +86,24 @@ class ReceiptTest extends TestCase
 
 
 
+	public function testTotalWithCouponGreaterThan100PercentException()
+	{
+		
+		$input = [ 0, 2, 5, 8];
+
+		$coupon = 1.20;
+
+		$this->expectException('BadMethodCallException');
+
+		$this->receipt->total($input, $coupon);
+
+ 
+
+	}  
+
+
+
+
 
 	public function testTax()
 	{
